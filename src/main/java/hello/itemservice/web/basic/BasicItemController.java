@@ -72,12 +72,20 @@ public class BasicItemController {
         return "basic/item";
     }
 
-    @PostMapping("/add")
+//    @PostMapping("/add")
     public String addItemV4(Item item) {    //class 명을 dafault로 사용
         itemRepository.save(item);
 //        model.addAttribute("item", item);
 
         return "basic/item";
+    }
+
+    @PostMapping("/add")
+    public String addItemV5(Item item) {    //class 명을 dafault로 사용
+        itemRepository.save(item);
+//        model.addAttribute("item", item);
+
+        return "redirect:/basic/items/" + item.getId();
     }
 
     @GetMapping("/{itemId}/edit")
